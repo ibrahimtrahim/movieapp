@@ -1,10 +1,11 @@
 import { Card } from "../components/Card"
 import { useFetch } from "../hooks/useFetch";
+import { Pagination } from "../components/Pagination";
 
 
 export const MovieList = ({apiPath}) => {
 
-  const {data : movies} = useFetch(apiPath);
+  const {currentPosts : movies, totalPosts, postsPerPage, setCurrentPage} = useFetch(apiPath);
 
 
   return (
@@ -15,6 +16,9 @@ export const MovieList = ({apiPath}) => {
             <Card key={movie.id} movie={movie} />
           ))}
         </div>
+      </section>
+      <section className="pb-3">
+        <Pagination totalPosts={totalPosts} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} />
       </section>
     </main>
   )
