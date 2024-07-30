@@ -1,5 +1,3 @@
-import { NavLink } from 'react-router-dom'
-
 
 export const Pagination = ({totalPosts, postsPerPage, setCurrentPage}) => {
 
@@ -9,7 +7,7 @@ export const Pagination = ({totalPosts, postsPerPage, setCurrentPage}) => {
         pages.push(i);
     }
   return (
-    <div>
+    <div className="flex justify-center">
         {pages.map((page, index) => {
             return <button 
             type='button' 
